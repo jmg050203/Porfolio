@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +8,26 @@
       background-color: #000;
       color: #fff;
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
     }
     header {
+      text-align: center;
       padding: 20px;
+    }
+    nav {
+      background-color: #111;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     img {
       width: 150px;
@@ -23,25 +36,54 @@
       margin-top: 20px;
     }
     .intro {
+      text-align: center;
       margin-top: 20px;
+    }
+    section {
+      display: none;
+      padding: 20px;
+    }
+    section.active {
+      display: block;
     }
     footer {
       margin-top: 40px;
       padding: 10px;
       background-color: #111;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <header>
+    <h1>My Portfolio</h1>
     <img src="Picture.jpg" alt="Profile Picture">
     <div class="intro">
-      <h1>Hi! I'm John Michael G. Gonzales</h1>
+      <h2>Hi! I'm John Michael G. Gonzales</h2>
       <p>2nd year Computer Science student. Passionate about web development and continuously learning new technologies.</p>
     </div>
-  </header>
-  <footer>
+  </header>  <nav>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+  </nav>  <section id="about">
+    <h2>About Me</h2>
+    <p>Name: John Michael G. Gonzales</p>
+    <p>Age: 22</p>
+    <p>Course: Bachelor of Science in Computer Science</p>
+  </section>  <section id="contact">
+    <h2>Contact</h2>
+    <p>Phone: 09383334274</p>
+    <p>Email: jmg570407@gmail.com</p>
+    <p>Facebook: John Michael Gonzales</p>
+    <p>Instagram: j3y.em_</p>
+  </section>  <footer>
     © 2025 John Michael Gonzales
-  </footer>
-</body>
+  </footer>  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script></body>
 </html>
