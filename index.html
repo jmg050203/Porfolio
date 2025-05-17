@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #f8f8f8;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a.active {
+            border-bottom: 2px solid #333;
+        }
+
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 60px 30px;
+        }
+
+        .home-img img {
+            width: 300px;
+            border-radius: 10px;
+            margin-right: 40px;
+        }
+
+        .home-content {
+            max-width: 500px;
+        }
+
+        .home-content h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .home-content h1 span {
+            color: #007BFF;
+        }
+
+        .home-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .home-content p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">John Michael Gonzales</a>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">Service</a>
+            <a href="#">Skills</a>
+            <a href="#">Education</a>
+            <a href="#">Experience</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="home-img">
+            <img src="tagalog.jpg" alt="Profile Picture">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>John Michael Gonzales</span></h1>
+            <h3 class="typing-text">I'm a <span>Computer Science Student</span></h3>
+            <p>Computer Science Student at STI University.</p>
+        </div>
+    </section>
+
+</body>
+</html>
