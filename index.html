@@ -10,6 +10,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f4f9;
       color: #333;
+      transition: all 0.3s ease-in-out;
     }
 
     header {
@@ -28,6 +29,22 @@
       color: #333;
       font-weight: bold;
       cursor: pointer;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #0077cc;
+      transition: width 0.3s;
+      margin-top: 5px;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
     }
 
     .hero {
@@ -52,6 +69,11 @@
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .hero-img img:hover {
+      transform: scale(1.05);
     }
 
     .hero-text {
@@ -73,15 +95,19 @@
       display: none;
       padding: 2rem 1rem;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 2rem;
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
 
-    section h2 {
-      margin-top: 0;
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     footer {
@@ -99,6 +125,12 @@
     a.social-link:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 600px) {
+      .hero-text {
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -106,16 +138,16 @@
   <header>
     <h1>My Portfolio</h1>
     <nav>
-      <a onclick="showSection('home')">Home</a>
-      <a onclick="showSection('about')">About</a>
-      <a onclick="showSection('contact')">Contact</a>
+      <a onclick="showSection('home', this)" class="active">Home</a>
+      <a onclick="showSection('about', this)">About</a>
+      <a onclick="showSection('contact', this)">Contact</a>
     </nav>
   </header>
 
-  <div id="home">
+  <div id="home" class="active-section">
     <div class="hero">
       <div class="hero-text">
-        <h2>Hi! I'm John Michael G. Gonzales</h2>
+        <h2 id="typewriter">Hi! I'm John Michael G. Gonzales</h2>
         <p>2nd year Computer Science student. Passionate about web development and continuously learning new technologies.</p>
       </div>
       <div class="hero-img">
@@ -144,14 +176,41 @@
   </footer>
 
   <script>
-    function showSection(id) {
-      document.getElementById("home").style.display = id === "home" ? "block" : "none";
-      document.getElementById("about").style.display = id === "about" ? "block" : "none";
-      document.getElementById("contact").style.display = id === "contact" ? "block" : "none";
+    function showSection(id, element) {
+      // Hide all sections
+      document.querySelectorAll("section, #home").forEach(sec => {
+        sec.classList.remove("active");
+        sec.style.display = "none";
+      });
+
+      // Show the selected one
+      const target = document.getElementById(id);
+      target.style.display = "block";
+      setTimeout(() => target.classList.add("active"), 10);
+
+      // Update nav active state
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+      element.classList.add("active");
     }
 
-    // Default to home
-    showSection('home');
+    // Default view
+    showSection('home', document.querySelector('nav a'));
+
+    // Typewriter effect (optional visual enhancement)
+    const typeText = "Hi! I'm John Michael G. Gonzales";
+    let i = 0;
+    const typewriter = document.getElementById("typewriter");
+
+    function typing() {
+      if (i < typeText.length) {
+        typewriter.textContent += typeText.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+      }
+    }
+
+    typewriter.textContent = "";
+    typing();
   </script>
 
 </body>
