@@ -1,4 +1,4 @@
-/* General Reset */
+/* General reset */
 body, h1, h2, p {
   margin: 0;
   padding: 0;
@@ -8,33 +8,40 @@ body, h1, h2, p {
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  scroll-behavior: smooth; /* Smooth scrolling */
+  background-color: #121212; /* Dark background */
+  color: #f0f0f0; /* Light text */
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-  background-color: #ffffff;
-  padding: 1rem;
+  background-color: #1e1e1e; /* Dark header */
+  padding: 1.5rem;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+h1 {
+  font-size: 2rem;
+  color: #f0f0f0;
+}
+
 nav a {
-  margin: 0 1rem;
+  margin: 0 1.5rem;
   text-decoration: none;
-  color: #333;
+  color: #f0f0f0;
   font-weight: bold;
   cursor: pointer;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 nav a:hover {
-  color: #0077cc; /* Change color on hover */
+  color: #0077cc; /* Accent color on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 nav a:before {
@@ -49,7 +56,7 @@ nav a:before {
 }
 
 nav a:hover:before {
-  width: 100%; /* Underline effect on hover */
+  width: 100%;
 }
 
 .hero {
@@ -81,11 +88,12 @@ nav a:hover:before {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
 .hero-img img:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
+  transform: scale(1.1); /* Zoom in the image */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
 }
 
 .hero-text {
@@ -95,13 +103,14 @@ nav a:hover:before {
 
 .hero-text h2 {
   margin-top: 0;
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 2rem;
+  color: #f0f0f0;
 }
 
 .hero-text p {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #d1d1d1; /* Light gray text */
 }
 
 section {
@@ -109,9 +118,9 @@ section {
   padding: 2rem 1rem;
   max-width: 600px;
   margin: 0 auto;
-  background-color: white;
+  background-color: #1e1e1e;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 2rem;
   opacity: 0;
   animation: fadeInUp 0.8s forwards;
@@ -124,21 +133,31 @@ section {
 
 section h2 {
   margin-top: 0;
-  color: #333;
+  font-size: 1.6rem;
+  color: #f0f0f0;
 }
 
 footer {
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  color: #555;
-  background-color: #fff;
+  color: #f0f0f0;
+  background-color: #1e1e1e;
+}
+
+footer a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #005fa3;
 }
 
 a.social-link {
   color: #0077cc;
   text-decoration: none;
-  font-weight: bold;
   transition: color 0.3s ease;
 }
 
@@ -147,12 +166,13 @@ a.social-link:hover {
   text-decoration: underline;
 }
 
-/* Add hover effect for the About and Contact cards */
+/* Hover effect for the About and Contact sections */
 section:hover {
   transform: scale(1.03);
   transition: transform 0.3s ease-in-out;
 }
 
+/* Social Media Links in Contact Section */
 .social-links {
   margin-top: 1rem;
 }
